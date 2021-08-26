@@ -155,9 +155,6 @@ function newConcat(array,...valor){
     let result = [];
     let arguments = [...valor]
     
-    for(let i = 0; i < arguments.length; i++){
-        console.log(arguments[i])
-    }
     result.push(...array)
     for(let i = 0; i < arguments.length; i++){
         if(typeof arguments[i] === 'number' || typeof arguments[i] === 'string'){

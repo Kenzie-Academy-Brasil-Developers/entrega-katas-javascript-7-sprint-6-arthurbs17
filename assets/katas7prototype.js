@@ -143,18 +143,24 @@ let retornoNewFilter = myArray3.newFilter(callbackFilter);
 
 // CONCAT
 
-Array.prototype.newConcat = function(valor){
-    let arrValor = valor;
-    if(typeof valor !== 'object'){
-        arrValor = [valor];
+Array.prototype.newConcat = function(...valor){
+    let result = [];
+    result.push(...this)
+    let arguments = [...valor]
+    
+    for(let i = 0; i < arguments.length; i++){
+        if(typeof arguments[i] === 'number' || typeof arguments[i] === 'string'){
+            result.push(arguments[i])
+        }else{
+            result.push(...arguments[i])
+        }
     }
-    let result = [...this, ...arrValor];
 
     return result;
 }
 
-let retornoConcat = myArray4.concat(myArray5);
-let retornoNewConcat = myArray4.newConcat(myArray5);
+let retornoConcat = myArray4.concat(myArray5,myArray7,9,'kenzinho');
+let retornoNewConcat = myArray4.newConcat(myArray5,myArray7,9,'kenzinho');
 
 // INCLUDES
 
